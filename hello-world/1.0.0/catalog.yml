@@ -1,0 +1,48 @@
+# Nimbus catalog yaml v.1
+api-version: 1.0.0
+from: nimbus-hub:hello-world:1.0.0
+description:  "hello-world from nimbus-hub"
+notary:
+    read:
+		all
+input:
+	name:
+		type: string
+process:
+	block:
+		name: block-1
+		order: 1
+		task:
+			name: task 1
+			order: 1
+			type: shell
+			logic: >
+				echo "this is a task running...";
+				sleep 5;
+				echo "this task has completed.";
+	block:
+		name: block-2
+		order: 2
+		task:
+			name: task 1
+			order: 1
+			type: shell
+			logic: >
+				echo "this is a task running...";
+				sleep 5;
+				echo "this task has completed.";
+	block:
+		name: block-3
+		order: 3
+		task:
+			name: task 1
+			order: 1
+			type: shell
+			logic: >
+				echo "this is a task running...";
+				sleep 5;
+				echo "this task has completed.";
+output:
+	greeting:
+		type: string
+		value: "hello &name, welcome to nimbus!"
